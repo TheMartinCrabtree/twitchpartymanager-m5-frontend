@@ -6,15 +6,37 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-main{
+  background-color: #0a0250;
   min-height: 100vh;
+  padding: 5vw;
+}
+
+.App-header {
+  background-color: #57007e;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-logincheck {
+  background-color: #ffd5bd;
+  min-height: 40vh;
+}
+
+.App-footer {
+  background-color: #57007e;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
 }
 
 .App-link {
