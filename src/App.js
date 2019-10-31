@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Notfound from  './Notfound.js';
+import {Route, NavLink, Link, Switch } from 'react-router-dom';
+import  Login from './Login.js';
+import Maincontainer from './Maincontainer.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	state={ 
+		loggedin = false,
+		admin=true
+	}
+
+	return (
+		<main className="App-main">
+			<header className="App-header">
+				<h1 > This is the header </h1>
+			</header>
+			<div className="App-logincheck">
+				{ !!this.isLoggedIn() ? <Maincontainer /> : <Login /> }
+			</div>
+		</main>
+	);
 }
 
 export default App;
