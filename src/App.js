@@ -5,23 +5,31 @@ import {Route, NavLink, Link, Switch } from 'react-router-dom';
 import  Login from './Login.js';
 import Maincontainer from './Maincontainer.js';
 
-function App() {
-
-	state={ 
-		loggedin = false,
-		admin=true
+export default class App extends React.Component {
+	state={
+		loggedin: true,
+		admin: false
 	}
 
-	return (
-		<main className="App-main">
-			<header className="App-header">
-				<h1 > This is the header </h1>
-			</header>
-			<div className="App-logincheck">
-				{ !!this.isLoggedIn() ? <Maincontainer /> : <Login /> }
-			</div>
-		</main>
-	);
+	isLoggedIn=()=>{
+		return true;
+	}
+
+	render(){
+		return (
+			<main className="App-main">
+				<header className="App-header">
+					<h1 > This is the header </h1>
+				</header>
+				<div className="App-logincheck">
+					{ !!this.isLoggedIn() ? <Maincontainer  admin={this.state.admin} loggedin={this.state.loggedin} /> : <Login /> }
+				</div>
+				<footer className="App-footer">
+					<span >Footer content will go here.</span>
+				</footer>
+			</main>
+		);
+	}
+
 }
 
-export default App;
