@@ -12,7 +12,7 @@ export default class App extends React.Component {
 	}
 
 	isLoggedIn=()=>{
-		return true;
+		return false;
 	}
 
 	render(){
