@@ -1,10 +1,11 @@
 import React from 'react';
 
 
+
 export default class Login extends React.Component{
 
     onClick(){
-        window.location.href="https://api.twitch.tv/kraken/oauth2/authorize?response_type=code&client_id=[ClientID]&redirect_uri=[http://localhost:3006/]&scope=[SCOPES_REQUIRES] 610";
+        window.location.href="https://api.twitch.tv/kraken/oauth2/authorize?response_type=code&client_id=jro8lw9sohw9cwhqghg0f6dahn2eqv&redirect_uri=http://localhost:3006&scope=user:edit+user:read:email";
     }
     
 
