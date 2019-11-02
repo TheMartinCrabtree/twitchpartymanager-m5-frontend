@@ -3,7 +3,10 @@ import  React from 'react';
 export default ( )=>{
     return(
         <li >
-            this is an event list item
+            <h3>Event Name</h3>
+            <div>Date/Time: </div>
+            <div>Details:  </div>
+            <div>Attendees:</div>
         </li>
     )
 }
