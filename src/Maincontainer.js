@@ -11,11 +11,11 @@ export default class Maincontainer extends React.Component{
 
     render(){
         return(
-            <div className="Main-grid-container">
+            <div >
                 <span>selecting containers based on admin or user</span>
-                <Navbar className="item6" />
-                <Eventlist className="item8"  />
-                { this.props.admin ?  <Adminview className="item7" /> : <Userview className="item3" /> } 
+                <Navbar  />
+                <Eventlist   />
+                { this.props.admin ?  <Adminview  /> : <Userview  /> } 
             </div>
         )
     }

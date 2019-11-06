@@ -7,12 +7,24 @@ import Maincontainer from './Maincontainer.js';
 
 export default class App extends React.Component {
 	state={
-		loggedin: true,
-		admin: false
+		loggedin: false,
+		admin: false,
+		userinfo: {}
 	}
 
 	isLoggedIn=()=>{
-		return true;
+		return this.state.loggedin;
+	}
+
+	loginUser=(event, userData)=>{
+		console.log("Received User Data in app", userData)
+		
+		if(userData.aud){
+			this.setState({
+				loggedin: true,
+				userinfo: userData
+			})
+		}
 	}
 
 	render(){
@@ -22,7 +34,10 @@ export default class App extends React.Component {
 					<h1 > This is the header </h1>
 				</header>
 				<div className="App-logincheck item3">
-					{ !!this.isLoggedIn() ? <Maincontainer  admin={this.state.admin} loggedin={this.state.loggedin} /> : <Login /> }
+					{ !!this.isLoggedIn() ? 
+						<Maincontainer  admin={this.state.admin} loggedin={this.state.loggedin} /> 
+						:
+						 <Login loginUser={this.loginUser} /> }
 				</div>
 				<footer className="App-footer item5">
 					<span >Footer content will go here.</span>
