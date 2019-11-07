@@ -1,12 +1,10 @@
 import  React from 'react';
 
-export default ( )=>{
+export default (props)=>{
     return(
-        <li >
-            <h3>Event Name</h3>
-            <div>Date/Time: </div>
-            <div>Details:  </div>
-            <div>Attendees:</div>
+        <li onClick={(event)=>props.handleViewEvent(event, props.event)} >
+            <h4>Event Name: {props.event.eventname} </h4>
+            <div>Date/Time: {props.event.dateandtime} </div>
         </li>
     )
 }
