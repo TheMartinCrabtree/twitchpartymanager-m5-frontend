@@ -24,6 +24,7 @@ export default class Menu extends React.Component{
                         handleSignupTextInput={this.props.handleSignupTextInput}
                         ingamename={this.props.ingamename}
                         handleSignupSubmit={this.props.handleSignupSubmit} 
+                        handleRemoveSignup={this.props.handleRemoveSignup}
                     />
                 </>
             </div>

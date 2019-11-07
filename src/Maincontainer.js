@@ -99,11 +99,12 @@ export default class Maincontainer extends React.Component{
         
         
         if(this.state.myevents.some((myevent)=>{return myevent.id===eventObj.id})){
-            return alert("You are already signed up!");
+            alert("You are already signed up!");
+            return this.setState({
+                ingamename: ""
+            })
         }
         
-        debugger
-
         return fetch("http://localhost:3000/joinuserevents",{
                 method: "POST",
                 body: JSON.stringify({
@@ -118,11 +119,44 @@ export default class Maincontainer extends React.Component{
         .then(response=>response.json())
         .then(eventjoin=>{
             console.log("event join created", eventjoin)
-            this.setState({
+            return this.setState({
+                ingamename: "",
                 myevents: [...this.state.myevents, eventObj]
             })
         })
         
+    }
+
+    handleRemoveSignup=(event, eventID)=>{
+        console.log("removing event from signup list")
+        if(this.state.myevents.some((myevent)=>{return myevent.id===eventID})){
+            let myeventsUpdated = this.state.myevents.filter((myevent)=>{
+                return myevent.id===eventID
+            })
+
+            this.removeEventJoin(eventID)
+
+            return this.setState({
+                myevents: myeventsUpdated
+            })
+        }
+        else{
+            return alert("You were not signed up to begin with!");
+        }
+    }
+
+    removeEventJoin=(eventID)=>{
+        console.log("removing event from backend", eventID)
+        fetch("http://localhost:3000/signups/cancel", {
+            method: "PATCH",
+            body: JSON.stringify({
+                user_id: this.props.userinfo.id,
+                event_id: eventID
+            }),
+            headers:{
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
     }
 
     render(){
@@ -139,6 +173,7 @@ export default class Maincontainer extends React.Component{
                         ingamename={this.state.ingamename}
                         handleSignupTextInput={this.handleSignupTextInput}
                         handleSignupSubmit={this.handleSignupSubmit} 
+                        handleRemoveSignup={this.handleRemoveSignup}
                     /> 
                     : 
                     <Userview  
@@ -147,6 +182,7 @@ export default class Maincontainer extends React.Component{
                         ingamename={this.state.ingamename}
                         handleSignupTextInput={this.handleSignupTextInput}
                         handleSignupSubmit={this.handleSignupSubmit} 
+                        handleRemoveSignup={this.handleRemoveSignup}
                     /> 
                 } 
             </div>

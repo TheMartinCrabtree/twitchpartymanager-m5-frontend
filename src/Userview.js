@@ -10,6 +10,7 @@ export default(props)=>{
                 handleSignupTextInput={props.handleSignupTextInput}
                 ingamename={props.ingamename}
                 handleSignupSubmit={props.handleSignupSubmit} 
+                handleRemoveSignup={props.handleRemoveSignup}
             />
         </div>
     )
