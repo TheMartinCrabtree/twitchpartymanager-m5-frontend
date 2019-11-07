@@ -2,11 +2,13 @@ import React from 'react';
 import EventlistItem from './EventlistItem.js';
 
 
-export default ()=>{
+export default (props)=>{
     return(
         <nav >
             <ul >
-                <EventlistItem  />
+                {props.events.map((event)=>{
+                    return <EventlistItem event={event} handleViewEvent={props.handleViewEvent} />
+                })}
             </ul>
         </nav>
     )

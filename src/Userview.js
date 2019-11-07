@@ -1,11 +1,11 @@
 import  React from 'react';
 import Menu from './components/Menu.js';
 
-export default()=>{
+export default(props)=>{
     return (
         <div > 
             Userview 
-            <Menu />
+            <Menu displayEvent={props.displayEvent} />
         </div>
     )
 }
