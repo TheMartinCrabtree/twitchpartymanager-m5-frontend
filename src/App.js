@@ -19,7 +19,7 @@ export default class App extends React.Component {
 	loginUser=(event, userData)=>{
 		console.log("Received User Data in app", userData)
 		
-		if(userData.aud){
+		if(userData){
 			this.setState({
 				loggedin: true,
 				userinfo: userData
