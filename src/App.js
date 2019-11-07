@@ -22,9 +22,19 @@ export default class App extends React.Component {
 		if(userData){
 			this.setState({
 				loggedin: true,
-				userinfo: userData
+				userinfo: userData,
+				admin: userData.administrator
 			})
 		}
+	}
+
+	handleLogout=(event)=>{
+		console.log("logging out")
+		this.setState({
+			loggedin: false,
+			admin: false,
+			userinfo: {}
+		})
 	}
 
 	render(){
@@ -35,7 +45,7 @@ export default class App extends React.Component {
 				</header>
 				<div className="App-logincheck item3">
 					{ !!this.isLoggedIn() ? 
-						<Maincontainer  admin={this.state.admin} loggedin={this.state.loggedin} /> 
+						<Maincontainer  admin={this.state.admin} loggedin={this.state.loggedin} userinfo={this.state.userinfo} handleLogout={this.handleLogout} /> 
 						:
 						 <Login loginUser={this.loginUser} /> }
 				</div>
