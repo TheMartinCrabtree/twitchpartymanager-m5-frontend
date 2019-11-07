@@ -7,7 +7,7 @@ export default (props)=>{
         <nav >
             <ul >
                 {props.events.map((event)=>{
-                    return <EventlistItem event={event} handleViewEvent={props.handleViewEvent} />
+                    return <EventlistItem key={event.id} event={event} handleViewEvent={props.handleViewEvent} />
                 })}
             </ul>
         </nav>

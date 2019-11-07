@@ -5,6 +5,7 @@ import Details from './Details'
 
 export default class Menu extends React.Component{
 
+
     render(){
         return(
             <div > 
@@ -18,7 +19,12 @@ export default class Menu extends React.Component{
                     display home, calendar, details here
                     <Announcement  />
                     <Calendar  />
-                    <Details  />
+                    <Details 
+                        displayEvent={this.props.displayEvent}
+                        handleSignupTextInput={this.props.handleSignupTextInput}
+                        ingamename={this.props.ingamename}
+                        handleSignupSubmit={this.props.handleSignupSubmit} 
+                    />
                 </>
             </div>
         )
