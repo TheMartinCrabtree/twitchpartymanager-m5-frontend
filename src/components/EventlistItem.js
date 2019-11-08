@@ -5,6 +5,11 @@ export default (props)=>{
         <li onClick={(event)=>props.handleViewEvent(event, props.event)} >
             <h4>Event Name: {props.event.eventname} </h4>
             <div>Date/Time: {props.event.dateandtime} </div>
+            {props.signedup ? 
+                <div ><font color="red">Signed-up</font></div>
+                :
+                <> </>
+            }
         </li>
     )
 }

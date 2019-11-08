@@ -23,9 +23,20 @@
   color: white;
 }
 
+.App-maincontainer {
+  background-color: #ffd5bd;
+  min-height: 75vh;
+}
+
 .App-logincheck {
   background-color: #ffd5bd;
   min-height: 40vh;
+}
+
+.App-logincontainer {
+  background-color: #ffd5bd;
+  min-height: 40vh;
+  padding: 10vw;
 }
 
 .App-footer {
@@ -58,9 +69,9 @@
     'header header header header header header'
     'main main main main main main'
     'footer footer footer footer footer footer';
-  grid-gap: 10px;
+  grid-gap: 5px;
   background-color: #2196F3;
-  padding: 10px;
+  padding: 5px;
 }
 
 .Main-grid-container {
@@ -69,9 +80,9 @@
     'list nav nav nav nav nav'
     'list details details details details details'
     'list details details details details details';
-  grid-gap: 10px;
+  grid-gap: 5px;
   background-color: #2196F3;
-  padding: 10px;
+  padding: 5px;
 }
 
 .grid-container > div {
