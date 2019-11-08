@@ -83,7 +83,8 @@ export default class Maincontainer extends React.Component{
             console.log("event join created", eventjoin)
         })
         this.setState({
-            events: [...this.state.events, newEvent]
+            events: [...this.state.events, newEvent],
+            myevents: [...this.state.myevents, newEvent]
         })
     }
 
@@ -126,6 +127,7 @@ export default class Maincontainer extends React.Component{
             .then(response=>response.json())
             .then(eventjoin=>{
                 console.log("event join created", eventjoin)
+                
                 return this.setState({
                     ingamename: "",
                     myevents: [...this.state.myevents, eventObj]

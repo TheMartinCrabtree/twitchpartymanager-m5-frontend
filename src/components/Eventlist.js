@@ -11,12 +11,8 @@ export default (props)=>{
                 {props.events.map((eventObj)=>{
                     let signedupCheck = false;
                     signedupCheck = props.myevents.some((ev)=>{
-                        
                         return ev.id === eventObj.id
                     });
-                    console.log("event checked", eventObj)
-                    console.log("signed up", signedupCheck)
-                    
                     
                     return(
                         <EventlistItem 
