@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default (props)=>{
+    // MAKE SIGNUP / REMOVE SIGNUP 
     return(
         <section >
             
@@ -28,6 +29,7 @@ export default (props)=>{
                         </label>
                         <input type="submit" value="Sign me up!" />
                     </form>
+                    <button onClick={(event)=>props.handleRemoveSignup(event, props.displayEvent.id)} >Remove me from the sign up list.</button>
                     </div> 
                     
                 }

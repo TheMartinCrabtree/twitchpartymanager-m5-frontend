@@ -6,7 +6,7 @@ export default class Eventcreate extends React.Component {
         dateandtime: "2019-11-25 06:45:00",
         serverinfo: "",
         voip: "",
-        eventnotes: ""
+        eventnote: ""
     }
 
     
@@ -23,7 +23,16 @@ export default class Eventcreate extends React.Component {
         return(
             <div>
                 <h2>Create An Event (admin only) </h2>
-                <form onSubmit={(event)=>this.props.handleAddEvent(event, this.state)} >
+                <form onSubmit={async(event)=>{
+                        this.props.handleAddEvent(event, this.state);
+                        this.setState({
+                            eventname: "",
+                            dateandtime: "2019-11-25 06:45:00",
+                            serverinfo: "",
+                            voip: "",
+                            eventnote: ""
+                        })
+                }}>
                     <label>
                         Event Name:
                         <input name="eventname" onChange={this.handleFormInput}  type="text" value={this.state.eventname} />
