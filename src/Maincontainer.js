@@ -1,17 +1,20 @@
 import React from 'react';
 import './App.css';
+import { Columns, Container } from  'react-bulma-components';
 import {Route, NavLink, Link, Switch } from 'react-router-dom';
 import Adminview from './Adminview.js';
 import Userview from './Userview.js';
-import Navbar from './Navbar';
+import NavbarComp from './Navbar';
 import Eventlist from './components/Eventlist.js';
+
 
 export default class Maincontainer extends React.Component{
     state ={
         events: [],
         displayEvent: {},
         ingamename: "",
-        myevents: []
+        myevents: [],
+        activetab: "announcements"
     }
 
     componentDidMount(){
@@ -83,7 +86,8 @@ export default class Maincontainer extends React.Component{
             console.log("event join created", eventjoin)
         })
         this.setState({
-            events: [...this.state.events, newEvent]
+            events: [...this.state.events, newEvent],
+            myevents: [...this.state.myevents, newEvent]
         })
     }
 
@@ -126,6 +130,7 @@ export default class Maincontainer extends React.Component{
             .then(response=>response.json())
             .then(eventjoin=>{
                 console.log("event join created", eventjoin)
+                
                 return this.setState({
                     ingamename: "",
                     myevents: [...this.state.myevents, eventObj]
@@ -172,31 +177,36 @@ export default class Maincontainer extends React.Component{
 
     render(){
         return(
-            <div  >
-                <span>selecting containers based on admin or user</span>
-                <Navbar   userinfo={this.props.userinfo} handleLogout={this.props.handleLogout}  />
-                <Eventlist   userinfo={this.props.userinfo}events={this.state.events} myevents={this.state.myevents} handleViewEvent={this.handleViewEvent}  />
-                { this.props.admin ?  
-                    <Adminview 
-                        userinfo={this.props.userinfo} 
-                        handleAddEvent={this.handleAddEvent} 
-                        displayEvent={this.state.displayEvent}
-                        ingamename={this.state.ingamename}
-                        handleSignupTextInput={this.handleSignupTextInput}
-                        handleSignupSubmit={this.handleSignupSubmit} 
-                        handleRemoveSignup={this.handleRemoveSignup}
-                    /> 
-                    : 
-                    <Userview  
-                        userinfo={this.props.userinfo}  
-                        displayEvent={this.state.displayEvent}
-                        ingamename={this.state.ingamename}
-                        handleSignupTextInput={this.handleSignupTextInput}
-                        handleSignupSubmit={this.handleSignupSubmit} 
-                        handleRemoveSignup={this.handleRemoveSignup}
-                    /> 
-                } 
-            </div>
+            <Container >
+                <NavbarComp   userinfo={this.props.userinfo} handleLogout={this.props.handleLogout}  /> 
+                <Columns>
+                    <Columns.Column size="one-fifth"  >
+                        <Eventlist   userinfo={this.props.userinfo}events={this.state.events} myevents={this.state.myevents} handleViewEvent={this.handleViewEvent}  />
+                    </Columns.Column>
+                    <Columns.Column>
+                        { this.props.admin ?  
+                            <Adminview 
+                                userinfo={this.props.userinfo} 
+                                handleAddEvent={this.handleAddEvent} 
+                                displayEvent={this.state.displayEvent}
+                                ingamename={this.state.ingamename}
+                                handleSignupTextInput={this.handleSignupTextInput}
+                                handleSignupSubmit={this.handleSignupSubmit} 
+                                handleRemoveSignup={this.handleRemoveSignup}
+                            /> 
+                            : 
+                            <Userview  
+                                userinfo={this.props.userinfo}  
+                                displayEvent={this.state.displayEvent}
+                                ingamename={this.state.ingamename}
+                                handleSignupTextInput={this.handleSignupTextInput}
+                                handleSignupSubmit={this.handleSignupSubmit} 
+                                handleRemoveSignup={this.handleRemoveSignup}
+                            /> 
+                        } 
+                    </Columns.Column>
+                </Columns>
+            </Container>
         )
     }
 }

@@ -4,7 +4,6 @@ import Menu from './components/Menu.js';
 export default(props)=>{
     return (
         <div > 
-            Userview 
             <Menu 
                 displayEvent={props.displayEvent}
                 handleSignupTextInput={props.handleSignupTextInput}
