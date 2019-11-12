@@ -1,13 +1,14 @@
 import React from 'react';
 import EventlistItem from './EventlistItem.js';
+import { Menu, Container } from  'react-bulma-components';
 
 
 export default (props)=>{
 
 
     return(
-        <nav >
-            <ul >
+        <Menu >
+            <ul className="menu-list"  >
                 {props.events.map((eventObj)=>{
                     let signedupCheck = false;
                     signedupCheck = props.myevents.some((ev)=>{
@@ -20,10 +21,11 @@ export default (props)=>{
                             event={eventObj} 
                             signedup={signedupCheck}
                             handleViewEvent={props.handleViewEvent}
+                            className="menu-item"
                         />
                     )
                 })}
             </ul>
-        </nav>
+        </Menu>
     )
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Container, Heading, Button, Columns} from 'react-bulma-components';
 
 
 export default class Login extends React.Component{
@@ -50,24 +52,26 @@ export default class Login extends React.Component{
 
     render(){
         return(
-            <section >
-                <span >This is the login section</span>
-                    
-                    { this.state.username === "" ?  
-                    <nav >
-                        <button id="loginbutton" onClick={this.onClick}>Login with Twitch</button>
-                    </nav>
-                    :
-                    <article >
-                    <h3>
-                        Welcome:  {this.state.username}
-                    </h3>
-                    <div>
-                        <button onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></button>
-                    </div>
-                    </article>}
-                    
-            </section>
+            <Container >
+                <section >
+                    <Heading >
+                        Login to continue:
+                    </Heading>
+                        { this.state.username === "" ?  
+                        <nav >
+                            <Button color="info" id="loginbutton" onClick={this.onClick}>Login with Twitch</Button>
+                        </nav>
+                        :
+                        <article >
+                        <h3>
+                            Welcome:  {this.state.username}
+                        </h3>
+                        <div>
+                            <Button color="info" onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></Button>
+                        </div>
+                        </article>}
+                </section>
+            </Container>
         )
     }
 }
