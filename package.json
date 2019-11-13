@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.8.0",
+    "bulma-start": "0.0.3",
     "dotenv": "^8.2.0",
     "node-sass": "^4.13.0",
     "node-sass-chokidar": "^1.4.0",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "npm-run-all -p watch-css start-js",
     "start-js": "PORT=3006 react-scripts start",
     "build": "npm-run-all build-css build-js",

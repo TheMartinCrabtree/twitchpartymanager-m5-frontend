@@ -3,12 +3,13 @@ import { Container, Section, Heading, Card, Content} from  'react-bulma-componen
 
 export default ()=>{
     return(
-        <Section>
-            <Heading>Announcements</Heading>
-            <Card >
-                <Card.Image src="" alt="temp card image" />
+        <Section >
+            <Card backgroundColor="white-ter" >
+                <Card.Header>
+                    <Card.Header.Title>Announcements</Card.Header.Title>
+                </Card.Header>
                 <Card.Content>
-                    <Heading>Card Heading</Heading>
+                    <Heading subtitle>Card Heading</Heading>
                     <Content>
                         This is where the announcement content goes.
                     </Content>

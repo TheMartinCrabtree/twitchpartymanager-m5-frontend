@@ -63,9 +63,9 @@ export default class Login extends React.Component{
                         </nav>
                         :
                         <article >
-                        <h3>
+                        <Heading subtitle >
                             Welcome:  {this.state.username}
-                        </h3>
+                        </Heading>
                         <div>
                             <Button color="info" onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></Button>
                         </div>

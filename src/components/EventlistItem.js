@@ -4,7 +4,7 @@ import { Card } from  'react-bulma-components';
 export default (props)=>{
     return(
         <li onClick={(event)=>props.handleViewEvent(event, props.event)} >
-            <Card >
+            <Card backgroundColor="light" >
                 <div className="card-header">
                     <h4 className="card-header-title">
                         Event Name: {props.event.eventname} 

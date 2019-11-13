@@ -21,7 +21,7 @@ export default class Menu extends React.Component{
     showTab=()=>{
         switch(this.state.activeTab){
             case "announcement":
-                return <Announcement />
+                return <Announcement  />
             break;
             case "calendar":
                 return <Calendar />
@@ -47,26 +47,29 @@ export default class Menu extends React.Component{
                     <Tabs.Tab 
                         name="announcement" 
                         onClick={this.handleTabClick}
-                        active={this.state.activeTab==="announcement" ? true : false} >
+                        active={this.state.activeTab==="announcement" ? true : false}
+                        backgroundColor={this.state.activeTab==="announcement" ? "grey-light" : "grey-lightest"} >
                         Announcements
                     </Tabs.Tab>
                     <Tabs.Tab 
                         name="calendar" 
                         onClick={this.handleTabClick}
-                        active={this.state.activeTab==="calendar" ? true : false}   >
+                        active={this.state.activeTab==="calendar" ? true : false}
+                        backgroundColor={this.state.activeTab==="calendar" ? "grey-light" : "grey-lightest"}    >
                         Calendar
                     </Tabs.Tab>
                     <Tabs.Tab 
                         name="details" 
                         onClick={this.handleTabClick}
-                        active={this.state.activeTab==="details" ? true : false}   >
+                        active={this.state.activeTab==="details" ? true : false}
+                        backgroundColor={this.state.activeTab==="details" ? "grey-light" : "grey-lightest"}    >
                         Details
                     </Tabs.Tab>
                 </Tabs>
                 
-               <Section >
+               <div >
                    {this.showTab()}
-               </Section>
+               </div>
             </div>
         )
     }

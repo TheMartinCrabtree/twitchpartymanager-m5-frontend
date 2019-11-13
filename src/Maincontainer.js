@@ -177,7 +177,7 @@ export default class Maincontainer extends React.Component{
 
     render(){
         return(
-            <Container >
+            <Container backgroundColor="grey-lightest" >
                 <NavbarComp   userinfo={this.props.userinfo} handleLogout={this.props.handleLogout}  /> 
                 <Columns>
                     <Columns.Column size="one-fifth"  >

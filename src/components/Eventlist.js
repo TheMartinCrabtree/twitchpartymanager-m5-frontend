@@ -1,13 +1,16 @@
 import React from 'react';
 import EventlistItem from './EventlistItem.js';
-import { Menu, Container } from  'react-bulma-components';
+import { Menu, Section, Heading } from  'react-bulma-components';
 
 
 export default (props)=>{
 
 
     return(
-        <Menu >
+        <Menu backgroundColor="primary" >
+            <Section >
+                <Heading subtitle > Upcomming Events: </Heading>
+            </Section>
             <ul className="menu-list"  >
                 {props.events.map((eventObj)=>{
                     let signedupCheck = false;

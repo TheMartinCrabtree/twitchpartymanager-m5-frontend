@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Columns, Container, Footer, Heading, Hero} from  'react-bulma-components';
+import { Container, Section, Footer, Heading, Hero} from  'react-bulma-components';
 import Notfound from  './Notfound.js';
 import {Route, NavLink, Link, Switch } from 'react-router-dom';
 import  Login from './Login.js';
@@ -63,9 +63,14 @@ export default class App extends React.Component {
 						<Login   loginUser={this.loginUser} /> 
 					}
 				</div>
-				<Footer background-color='primary' color="true">
-					<span >Footer content will go here.</span>
+				<Footer >
+					<Container>
+						<p color="primary" >
+							The Best Twitch Event Organizer
+						</p>
+					</Container>
 				</Footer>
+				
 			</main>
 		);
 	}
