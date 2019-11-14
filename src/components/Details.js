@@ -4,7 +4,7 @@ import { Section, Heading, Card, Content, Button} from  'react-bulma-components'
 export default (props)=>{
     // MAKE SIGNUP / REMOVE SIGNUP 
     return(
-        <Section >
+        <div >
             
                 {Object.entries(props.displayEvent).length === 0 ? 
                     <Card>
@@ -64,6 +64,6 @@ export default (props)=>{
                     </div> 
                     
                 }
-        </Section>
+        </div>
     ) 
 }

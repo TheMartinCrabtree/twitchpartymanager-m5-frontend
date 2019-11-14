@@ -187,6 +187,7 @@ export default class Maincontainer extends React.Component{
                         { this.props.admin ?  
                             <Adminview 
                                 userinfo={this.props.userinfo} 
+                                myevents={this.state.myevents}
                                 handleAddEvent={this.handleAddEvent} 
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
@@ -197,6 +198,7 @@ export default class Maincontainer extends React.Component{
                             : 
                             <Userview  
                                 userinfo={this.props.userinfo}  
+                                myevents={this.state.myevents}
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
                                 handleSignupTextInput={this.handleSignupTextInput}

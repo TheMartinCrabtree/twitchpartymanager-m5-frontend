@@ -3,10 +3,10 @@ import { Container, Section, Heading, Card, Content} from  'react-bulma-componen
 
 export default ()=>{
     return(
-        <Section >
+        <div >
             <Card backgroundColor="white-ter" >
-                <Card.Header>
-                    <Card.Header.Title>Announcements</Card.Header.Title>
+                <Card.Header textSize={4} backgroundColor="dark">
+                    <Card.Header.Title textColor="white-ter" >Announcements</Card.Header.Title>
                 </Card.Header>
                 <Card.Content>
                     <Heading subtitle>Card Heading</Heading>
@@ -15,6 +15,6 @@ export default ()=>{
                     </Content>
                 </Card.Content>
             </Card>
-        </Section>
+        </div>
     ) 
 }

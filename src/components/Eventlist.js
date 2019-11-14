@@ -1,6 +1,6 @@
 import React from 'react';
 import EventlistItem from './EventlistItem.js';
-import { Menu, Section, Heading } from  'react-bulma-components';
+import { Menu, Section, Heading, Title, Box } from  'react-bulma-components';
 
 
 export default (props)=>{
@@ -8,9 +8,9 @@ export default (props)=>{
 
     return(
         <Menu backgroundColor="primary" >
-            <Section >
+            <p >
                 <Heading subtitle > Upcomming Events: </Heading>
-            </Section>
+            </p>
             <ul className="menu-list"  >
                 {props.events.map((eventObj)=>{
                     let signedupCheck = false;

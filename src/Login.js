@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Container, Heading, Button, Columns} from 'react-bulma-components';
+import { Container, Heading, Button, Section, Box} from 'react-bulma-components';
 
 
 export default class Login extends React.Component{
@@ -53,7 +53,9 @@ export default class Login extends React.Component{
     render(){
         return(
             <Container >
-                <section >
+                <Section >
+                    <Box>
+
                     <Heading >
                         Login to continue:
                     </Heading>
@@ -70,7 +72,8 @@ export default class Login extends React.Component{
                             <Button color="info" onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></Button>
                         </div>
                         </article>}
-                </section>
+                    </Box>
+                </Section>
             </Container>
         )
     }

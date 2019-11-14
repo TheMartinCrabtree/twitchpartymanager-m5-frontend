@@ -42,11 +42,13 @@ export default class App extends React.Component {
 		return (
 			<main  >
 				<Hero color='primary'  >
-					<Hero.Body >
-						<Heading	>
-							The Best Twitch Event Organizer 
-						</Heading>
-					</Hero.Body>
+					<Hero.Head style={{marginLeft: '10vw', height: '10vw' }}   >
+						<Section>
+							<Heading	>
+								The Best Twitch Event Organizer 
+							</Heading>
+						</Section>
+					</Hero.Head>
 				</Hero>
 			
 				

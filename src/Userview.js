@@ -6,6 +6,7 @@ export default(props)=>{
         <div > 
             <Menu 
                 displayEvent={props.displayEvent}
+                myevents={props.myevents}
                 handleSignupTextInput={props.handleSignupTextInput}
                 ingamename={props.ingamename}
                 handleSignupSubmit={props.handleSignupSubmit} 

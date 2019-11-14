@@ -24,7 +24,9 @@ export default class Menu extends React.Component{
                 return <Announcement  />
             break;
             case "calendar":
-                return <Calendar />
+                return <Calendar 
+                    myevents={this.props.myevents}
+                    handleRemoveSignup={this.props.handleRemoveSignup} />
             break;
             case "details":
                    return  <Details 
@@ -43,7 +45,7 @@ export default class Menu extends React.Component{
     render(){
         return(
             <div > 
-                <Tabs className="is-centered is-medium is-boxed" >
+                <Tabs className="is-centered is-medium is-boxed"   >
                     <Tabs.Tab 
                         name="announcement" 
                         onClick={this.handleTabClick}
