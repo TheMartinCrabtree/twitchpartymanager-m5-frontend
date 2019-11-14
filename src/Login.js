@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Container, Heading, Button, Section, Box} from 'react-bulma-components';
+import { Container, Heading, Button, Section, Box, Card, Media, Image} from 'react-bulma-components';
 
 
 export default class Login extends React.Component{
@@ -46,7 +46,7 @@ export default class Login extends React.Component{
     }
     
     onClick(){
-        window.location.href='https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=jro8lw9sohw9cwhqghg0f6dahn2eqv&redirect_uri=http://localhost:3006&scope=user_read+openid&claims={"id_token":{"email_verified":null}}';
+        window.location.href='https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=jro8lw9sohw9cwhqghg0f6dahn2eqv&redirect_uri=http://localhost:3006&scope=user_read+openid&claims={"id_token":{"email_verified":null}, "userinfo":{"picture":null, "preferred_username":null}}';
     }
     
 
@@ -55,23 +55,39 @@ export default class Login extends React.Component{
             <Container >
                 <Section >
                     <Box>
-
-                    <Heading >
-                        Login to continue:
-                    </Heading>
+                    
                         { this.state.username === "" ?  
-                        <nav >
-                            <Button color="info" id="loginbutton" onClick={this.onClick}>Login with Twitch</Button>
-                        </nav>
+                        <Card>
+                            <Card.Header>
+                                <Card.Header.Title textSize={4} >Login using your twitch account:</Card.Header.Title>
+                            </Card.Header>
+                            <Card.Content>
+                                <nav >
+                                    <Button color="info" id="loginbutton" onClick={this.onClick}>Login with Twitch</Button>
+                                </nav>
+                            </Card.Content>
+                        </Card>
                         :
-                        <article >
-                        <Heading subtitle >
-                            Welcome:  {this.state.username}
-                        </Heading>
-                        <div>
-                            <Button color="info" onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></Button>
-                        </div>
-                        </article>}
+                        <Card>
+                            <Card.Header>
+                                <Media>
+                                    <Media.Item renderAs="figure" position="left">
+                                    <Image size={65} alt="65x65" src={this.state.userdata.avatar_img} />
+                                    </Media.Item>
+                                    <Media.Item>
+                                        <Heading>Welcome: {this.state.username} </Heading>
+                                    </Media.Item>
+                                </Media>
+                            </Card.Header>
+
+
+                            <Card.Content>
+                                <Section>
+                                <Button color="info" onClick={(event)=>this.props.loginUser(event, this.state.userdata)}><h3>Continue</h3></Button>
+                                </Section>
+                            </Card.Content>
+                        </Card>
+                        }
                     </Box>
                 </Section>
             </Container>

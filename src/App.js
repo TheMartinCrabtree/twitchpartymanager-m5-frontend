@@ -41,10 +41,10 @@ export default class App extends React.Component {
 	render(){
 		return (
 			<main  >
-				<Hero color='primary'  >
+				<Hero color='link'  >
 					<Hero.Head style={{marginLeft: '10vw', height: '10vw' }}   >
 						<Section>
-							<Heading	>
+							<Heading textColor="white-ter"	>
 								The Best Twitch Event Organizer 
 							</Heading>
 						</Section>
@@ -52,7 +52,7 @@ export default class App extends React.Component {
 				</Hero>
 			
 				
-				<div  >
+				<div  style = {{  padding: "20px", background: "#f3e6ff" }}   >
 					{ !!this.isLoggedIn() ? 
 						<Maincontainer  
 							admin={this.state.admin} 
@@ -65,11 +65,17 @@ export default class App extends React.Component {
 						<Login   loginUser={this.loginUser} /> 
 					}
 				</div>
-				<Footer >
+				<Footer
+					style = {{
+						padding: "15px",
+						background: "#9933ff"
+        		}} >
 					<Container>
-						<p color="primary" >
-							The Best Twitch Event Organizer
-						</p>
+						<div  >
+							<font color="#FFFFFF">
+								The Best Twitch Event Organizer
+							</font>
+						</div>
 					</Container>
 				</Footer>
 				

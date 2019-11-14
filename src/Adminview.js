@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './components/Menu.js';
-import EventCreate from './components/Eventcreate'
+import EventCreate from './components/Eventcreate';
+import AnnouncementCreate from './components/AnnouncementCreate'
 import {  Content, Card, Section } from  'react-bulma-components';
 
 export default(props)=>{
@@ -10,6 +11,7 @@ export default(props)=>{
             <Menu 
                 displayEvent={props.displayEvent}
                 myevents={props.myevents}
+                announcements={props.announcements}
                 handleSignupTextInput={props.handleSignupTextInput}
                 ingamename={props.ingamename} 
                 handleSignupSubmit={props.handleSignupSubmit} 
@@ -24,6 +26,9 @@ export default(props)=>{
                     <Card.Content backgroundColor="grey-lighter"  >
                         <Content>
                             <EventCreate handleAddEvent={props.handleAddEvent}  />
+                        </Content>
+                        <Content>
+                            <AnnouncementCreate handleAddAnnouncement={props.handleAddAnnouncement}  />
                         </Content>
                     </Card.Content>
                 </Card>

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container, Section, Heading, Card, Content} from  'react-bulma-components';
+import { Container, Section, Heading, Card, Content, Box} from  'react-bulma-components';
 
-export default ()=>{
+export default (props)=>{
+    // MAP THROUGH  announcements={props.announcements}
+
     return(
-        <div >
+        <Box >
             <Card backgroundColor="white-ter" >
                 <Card.Header textSize={4} backgroundColor="dark">
                     <Card.Header.Title textColor="white-ter" >Announcements</Card.Header.Title>
@@ -15,6 +17,6 @@ export default ()=>{
                     </Content>
                 </Card.Content>
             </Card>
-        </div>
+        </Box>
     ) 
 }

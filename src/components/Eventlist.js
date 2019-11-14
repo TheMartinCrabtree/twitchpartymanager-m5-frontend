@@ -7,10 +7,15 @@ export default (props)=>{
 
 
     return(
-        <Menu backgroundColor="primary" >
+        <Menu backgroundColor="grey-lighter" >
+        <div style = {{
+            padding: "10px",
+            border: "1px solid #666699"
+        }} >
             <p >
-                <Heading subtitle > Upcomming Events: </Heading>
+                <Heading textSize={5} > Upcomming Events: </Heading>
             </p>
+            
             <ul className="menu-list"  >
                 {props.events.map((eventObj)=>{
                     let signedupCheck = false;
@@ -29,6 +34,7 @@ export default (props)=>{
                     )
                 })}
             </ul>
+        </div>
         </Menu>
     )
 }

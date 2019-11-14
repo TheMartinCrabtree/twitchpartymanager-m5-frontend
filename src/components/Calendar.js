@@ -4,6 +4,7 @@ import { Card, Heading, Box, Button } from  'react-bulma-components';
 export default (props)=>{
    
     return(
+        <Box>
         <Card backgroundColor="white-ter" >
             <Card.Header backgroundColor="dark" >
                 <Card.Header.Title textSize={4} textColor="white-ter" >My events:</Card.Header.Title>
@@ -27,5 +28,6 @@ export default (props)=>{
 
             </Card.Content>
         </Card>
+        </Box>
     ) 
 }

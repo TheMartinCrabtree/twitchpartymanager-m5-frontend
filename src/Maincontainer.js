@@ -14,7 +14,8 @@ export default class Maincontainer extends React.Component{
         displayEvent: {},
         ingamename: "",
         myevents: [],
-        activetab: "announcements"
+        activetab: "announcements",
+        announcements: []
     }
 
     componentDidMount(){
@@ -40,8 +41,16 @@ export default class Maincontainer extends React.Component{
                     myevents: signuplist
                 })
             }
-            
         })
+
+        fetch("http://localhost:3000/announcements")
+        .then(response=>response.json())
+        .then(announcementlist=>{
+            this.setState({
+                announcements: announcementlist
+            })
+        })
+
     }
 
 
@@ -175,12 +184,40 @@ export default class Maincontainer extends React.Component{
         })
     }
 
+    handleAddAnnouncement=(event, annObj)=>{
+        event.preventDefault();
+        console.log("adding announcement");
+        
+        this.createAnn(annObj);
+    }
+
+    createAnn=(annObj)=>{
+        fetch("http://localhost:3000/announcements",{
+            method: "POST",
+            body: JSON.stringify({
+                title: annObj.title,
+                bodytext: annObj.bodytext
+            }),
+            headers:{
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(response=>response.json())
+        .then(newAnn=>{
+            console.log("new ann created", newAnn)
+            
+            this.setState({
+                announcements: [...this.state.announcements, newAnn.announcement]
+            })
+        })
+    }
+
     render(){
         return(
             <Container backgroundColor="grey-lightest" >
                 <NavbarComp   userinfo={this.props.userinfo} handleLogout={this.props.handleLogout}  /> 
                 <Columns>
-                    <Columns.Column size="one-fifth"  >
+                    <Columns.Column size="one-quarter"  >
                         <Eventlist   userinfo={this.props.userinfo}events={this.state.events} myevents={this.state.myevents} handleViewEvent={this.handleViewEvent}  />
                     </Columns.Column>
                     <Columns.Column>
@@ -188,6 +225,8 @@ export default class Maincontainer extends React.Component{
                             <Adminview 
                                 userinfo={this.props.userinfo} 
                                 myevents={this.state.myevents}
+                                announcements={this.state.announcements}
+                                handleAddAnnouncement={this.handleAddAnnouncement}
                                 handleAddEvent={this.handleAddEvent} 
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
@@ -199,6 +238,7 @@ export default class Maincontainer extends React.Component{
                             <Userview  
                                 userinfo={this.props.userinfo}  
                                 myevents={this.state.myevents}
+                                announcements={this.state.announcements}
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
                                 handleSignupTextInput={this.handleSignupTextInput}

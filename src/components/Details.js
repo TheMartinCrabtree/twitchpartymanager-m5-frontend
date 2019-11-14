@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Heading, Card, Content, Button} from  'react-bulma-components';
+import { Section, Heading, Card, Content, Button, Box} from  'react-bulma-components';
 
 export default (props)=>{
     // MAKE SIGNUP / REMOVE SIGNUP 
@@ -7,6 +7,7 @@ export default (props)=>{
         <div >
             
                 {Object.entries(props.displayEvent).length === 0 ? 
+                    <Box>
                     <Card>
                         <Card.Header>
                             <Card.Header.Title textSize={4}>Select an event to show details</Card.Header.Title>
@@ -22,17 +23,17 @@ export default (props)=>{
 
                         </Card.Content>
                     </Card>
-
+                    </Box>
                     :
                     
-                    <div > 
+                    <Box > 
                         <Card>
                             <Card.Header>
                                 <Card.Header.Title textSize={4}>Event Details</Card.Header.Title>
                             </Card.Header>
                             <Card.Content>
                                 <ul>
-                                    <li><label textSize={5} >Event Name:</label> {props.displayEvent.eventname} </li>
+                                    <li><strong><label  >Event Name:</label> {props.displayEvent.eventname} </strong> </li>
                                     <li> <label >Date/Time:</label> {props.displayEvent.dateandtime} </li>
                                     <li> <label >Server:</label> {props.displayEvent.serverinfo} </li>
                                     <li> <label >VOIP:</label> {props.displayEvent.voip} </li>
@@ -42,7 +43,7 @@ export default (props)=>{
                     </Card>
                     <Card>
                         <Card.Header>
-                            <Card.Header.Title textSize={4}>Sign up:</Card.Header.Title>
+                            <Card.Header.Title textSize={5}>Sign up:</Card.Header.Title>
                         </Card.Header>
                         <Card.Content>
                             <form onSubmit={(event)=>props.handleSignupSubmit(event, props.displayEvent)} >
@@ -61,7 +62,7 @@ export default (props)=>{
                         </Card.Content>
                     </Card>
 
-                    </div> 
+                    </Box> 
                     
                 }
         </div>
