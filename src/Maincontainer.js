@@ -47,7 +47,7 @@ export default class Maincontainer extends React.Component{
         .then(response=>response.json())
         .then(announcementlist=>{
             this.setState({
-                announcements: announcementlist
+                announcements: announcementlist.announcements
             })
         })
 
@@ -205,11 +205,32 @@ export default class Maincontainer extends React.Component{
         .then(response=>response.json())
         .then(newAnn=>{
             console.log("new ann created", newAnn)
-            
             this.setState({
                 announcements: [...this.state.announcements, newAnn.announcement]
             })
         })
+    }
+
+    deleteAnn=(event, annID)=>{
+        if (this.state.announcements.some((annObj)=>{return annObj.id===annID})){
+            let annUpdated = this.state.announcements.filter((annObj)=>{
+                return annObj.id!==annID
+            })
+            
+            //this.removeAnnBackend(annID)
+
+            return this.setState({
+                announcements: annUpdated
+            })
+        }
+    }
+
+    removeAnnBackend=(annID)=>{
+        fetch("http://localhost:3000/announcements/" + `${annID}`, {
+            method: 'DELETE'
+        })
+        .then(response=>response.json())
+        .then(confirmation=>console.log("deleted ann", confirmation))
     }
 
     render(){
@@ -227,6 +248,7 @@ export default class Maincontainer extends React.Component{
                                 myevents={this.state.myevents}
                                 announcements={this.state.announcements}
                                 handleAddAnnouncement={this.handleAddAnnouncement}
+                                deleteAnn={this.deleteAnn}
                                 handleAddEvent={this.handleAddEvent} 
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}

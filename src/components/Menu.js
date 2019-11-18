@@ -29,7 +29,10 @@ export default class Menu extends React.Component{
     showTab=()=>{
         switch(this.state.activeTab){
             case "announcement":
-                return <Announcement announcements={this.props.announcements}  />
+                return <Announcement 
+                    announcements={this.props.announcements}
+                    deleteAnn={this.props.deleteAnn ? this.props.deleteAnn : null }
+                      />
             break;
             case "calendar":
                 return <Calendar 
