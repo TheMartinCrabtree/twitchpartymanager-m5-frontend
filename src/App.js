@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Columns, Container, Footer, Heading, Hero} from  'react-bulma-components';
+import { Container, Section, Footer, Heading, Hero} from  'react-bulma-components';
 import Notfound from  './Notfound.js';
 import {Route, NavLink, Link, Switch } from 'react-router-dom';
 import  Login from './Login.js';
@@ -41,16 +41,18 @@ export default class App extends React.Component {
 	render(){
 		return (
 			<main  >
-				<Hero color='primary'  >
-					<Hero.Body >
-						<Heading	>
-							The Best Twitch Event Organizer 
-						</Heading>
-					</Hero.Body>
+				<Hero color='link'  >
+					<Hero.Head style={{marginLeft: '10vw', height: '10vw' }}   >
+						<Section>
+							<Heading textColor="white-ter"	>
+								The Best Twitch Event Organizer 
+							</Heading>
+						</Section>
+					</Hero.Head>
 				</Hero>
 			
 				
-				<div  >
+				<div  style = {{  padding: "20px", background: "#f3e6ff" }}   >
 					{ !!this.isLoggedIn() ? 
 						<Maincontainer  
 							admin={this.state.admin} 
@@ -63,9 +65,20 @@ export default class App extends React.Component {
 						<Login   loginUser={this.loginUser} /> 
 					}
 				</div>
-				<Footer background-color='primary' color="true">
-					<span >Footer content will go here.</span>
+				<Footer
+					style = {{
+						padding: "15px",
+						background: "#9933ff"
+        		}} >
+					<Container>
+						<div  >
+							<font color="#FFFFFF">
+								The Best Twitch Event Organizer
+							</font>
+						</div>
+					</Container>
 				</Footer>
+				
 			</main>
 		);
 	}

@@ -14,7 +14,8 @@ export default class Maincontainer extends React.Component{
         displayEvent: {},
         ingamename: "",
         myevents: [],
-        activetab: "announcements"
+        activetab: "announcements",
+        announcements: []
     }
 
     componentDidMount(){
@@ -40,8 +41,16 @@ export default class Maincontainer extends React.Component{
                     myevents: signuplist
                 })
             }
-            
         })
+
+        fetch("http://localhost:3000/announcements")
+        .then(response=>response.json())
+        .then(announcementlist=>{
+            this.setState({
+                announcements: announcementlist.announcements
+            })
+        })
+
     }
 
 
@@ -175,18 +184,71 @@ export default class Maincontainer extends React.Component{
         })
     }
 
+    handleAddAnnouncement=(event, annObj)=>{
+        event.preventDefault();
+        console.log("adding announcement");
+        
+        this.createAnn(annObj);
+    }
+
+    createAnn=(annObj)=>{
+        fetch("http://localhost:3000/announcements",{
+            method: "POST",
+            body: JSON.stringify({
+                title: annObj.title,
+                bodytext: annObj.bodytext
+            }),
+            headers:{
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(response=>response.json())
+        .then(newAnn=>{
+            console.log("new ann created", newAnn)
+            this.setState({
+                announcements: [...this.state.announcements, newAnn.announcement]
+            })
+        })
+    }
+
+    deleteAnn=(event, annID)=>{
+        if (this.state.announcements.some((annObj)=>{return annObj.id===annID})){
+            let annUpdated = this.state.announcements.filter((annObj)=>{
+                return annObj.id!==annID
+            })
+            
+            //this.removeAnnBackend(annID)
+
+            return this.setState({
+                announcements: annUpdated
+            })
+        }
+    }
+
+    removeAnnBackend=(annID)=>{
+        fetch("http://localhost:3000/announcements/" + `${annID}`, {
+            method: 'DELETE'
+        })
+        .then(response=>response.json())
+        .then(confirmation=>console.log("deleted ann", confirmation))
+    }
+
     render(){
         return(
-            <Container >
+            <Container backgroundColor="grey-lightest" >
                 <NavbarComp   userinfo={this.props.userinfo} handleLogout={this.props.handleLogout}  /> 
                 <Columns>
-                    <Columns.Column size="one-fifth"  >
+                    <Columns.Column size="one-quarter"  >
                         <Eventlist   userinfo={this.props.userinfo}events={this.state.events} myevents={this.state.myevents} handleViewEvent={this.handleViewEvent}  />
                     </Columns.Column>
                     <Columns.Column>
                         { this.props.admin ?  
                             <Adminview 
                                 userinfo={this.props.userinfo} 
+                                myevents={this.state.myevents}
+                                announcements={this.state.announcements}
+                                handleAddAnnouncement={this.handleAddAnnouncement}
+                                deleteAnn={this.deleteAnn}
                                 handleAddEvent={this.handleAddEvent} 
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
@@ -197,6 +259,8 @@ export default class Maincontainer extends React.Component{
                             : 
                             <Userview  
                                 userinfo={this.props.userinfo}  
+                                myevents={this.state.myevents}
+                                announcements={this.state.announcements}
                                 displayEvent={this.state.displayEvent}
                                 ingamename={this.state.ingamename}
                                 handleSignupTextInput={this.handleSignupTextInput}
