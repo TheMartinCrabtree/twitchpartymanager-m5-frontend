@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Twitch Party Manager
 
-In the project directory, you can run:
+Twitch Party Manager allows Twitch.tv viewers to use their Twitch account credentials to sign up for online events that created by their favorite broadcaster. The frontend logic is developed using React.js, and is styled using the Bulma CSS Framework. The backend utilizes a Ruby on Rails API and a PostgreSQL database. Oauth2 credentials are handled using the New Twitch API (https://dev.twitch.tv/docs/api/), and token requests are performed in the Rails backend. 
 
-### `npm start`
+## Backend: https://github.com/TheMartinCrabtree/twitchpartymanager-m5-backend
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Frontend: https://github.com/TheMartinCrabtree/twitchpartymanager-m5-frontend
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Created Using:
+* Ruby on Rails API
+* PostgreSQL
+* New Twitch API (Oauth2)
+* React.js
+* Bulma CSS Framework (react-bulma-components)
 
-### `npm test`
+# To run:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Frontend
+*  To run a local copy  in development mode navigate to the project directory and run `npm start`.
+*  The default address is http://localhost:3006
+*  To develop a production build navigate to the project directory and run `npm run build`
 
-### `npm run build`
+## Backend
+*   Activate your local  PostgreSQL database. 
+*  To install and start the backend API, navigate to the project directory and run ‘bundle’
+*  Run ‘rails s’ to launch the Rails API backend. 
+*  Token requests to the Twitch API require a unique key that is referenced in a local .ENV file. This can be provided upon request.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Author:  Martin Crabtree
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
