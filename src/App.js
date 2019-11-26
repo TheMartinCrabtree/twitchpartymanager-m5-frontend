@@ -7,6 +7,7 @@ import  Login from './Login.js';
 import Maincontainer from './Maincontainer.js';
 
 export default class App extends React.Component {
+	// temp state, need to synch with backend
 	state={
 		loggedin: false,
 		admin: false,
