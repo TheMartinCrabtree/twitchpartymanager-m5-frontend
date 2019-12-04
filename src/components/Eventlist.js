@@ -1,6 +1,6 @@
 import React from 'react';
 import EventlistItem from './EventlistItem.js';
-import { Menu, Section, Heading, Title, Box } from  'react-bulma-components';
+import { Menu, Heading } from  'react-bulma-components';
 
 
 export default (props)=>{

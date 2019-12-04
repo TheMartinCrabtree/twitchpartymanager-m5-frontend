@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Heading, Card, Content, Button, Box} from  'react-bulma-components';
+import { Card,  Button, Box} from  'react-bulma-components';
 
 export default (props)=>{
     // MAKE SIGNUP / REMOVE SIGNUP 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Heading, Card, Content, Box} from  'react-bulma-components';
+import {  Button, Heading, Card, Content, Box} from  'react-bulma-components';
 
 export default (props)=>{
     // MAP THROUGH  announcements={props.announcements}

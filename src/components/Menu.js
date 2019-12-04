@@ -1,5 +1,5 @@
 import  React from 'react';
-import { Container, Navbar, Tabs, Section } from  'react-bulma-components';
+import { Tabs } from  'react-bulma-components';
 import Announcement from './Announcement.js';
 import Calendar from './Calendar.js';
 import Details from './Details'

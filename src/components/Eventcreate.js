@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Section, Card, Modal, Content, Control  } from  'react-bulma-components';
+import { Button, Section,  Modal, Content  } from  'react-bulma-components';
 
 export default class Eventcreate extends React.Component {
     state={

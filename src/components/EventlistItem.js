@@ -1,5 +1,5 @@
 import  React from 'react';
-import { Card, Box } from  'react-bulma-components';
+import { Card } from  'react-bulma-components';
 
 export default (props)=>{
     return(
