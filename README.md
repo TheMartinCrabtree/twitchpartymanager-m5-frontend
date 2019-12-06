@@ -3,7 +3,7 @@
 
 Twitch Party Manager allows Twitch.tv viewers to use their Twitch account credentials to sign up for online events that created by their favorite broadcaster. The frontend logic is developed using React.js, and is styled using the Bulma CSS Framework. The backend utilizes a Ruby on Rails API and a PostgreSQL database. Oauth2 credentials are handled using the New Twitch API (https://dev.twitch.tv/docs/api/), and token requests are performed in the Rails backend. 
 
-Check a video demo: https://youtu.be/cAir01pT2oc
+Check out this video demo: https://youtu.be/cAir01pT2oc
 
 ## Backend: https://github.com/TheMartinCrabtree/twitchpartymanager-m5-backend
 
