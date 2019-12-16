@@ -5,7 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router } from 'react-router-dom';
 
 
-// testing new machine & editor
+// Test 2 of 4
+// redering node.js
 ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
 
 
